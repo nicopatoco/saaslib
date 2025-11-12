@@ -8,8 +8,8 @@ A batteries-included NestJS library ecosystem for building modern SaaS applicati
   - [Table of Contents](#table-of-contents)
   - [Why SaaS Library?](#why-saas-library)
   - [Packages](#packages)
-    - [@saaslib/nestjs (v0.0.40)](#saaslibnestjs-v0040)
-    - [@saaslib/nextjs (v0.0.41)](#saaslibnextjs-v0041)
+    - [@nicopatoco/nestjs (v0.0.40)](#saaslibnestjs-v0040)
+    - [@nicopatoco/nextjs (v0.0.41)](#saaslibnextjs-v0041)
   - [Quick Start](#quick-start)
   - [Architecture Benefits](#architecture-benefits)
   - [Key Design Principles](#key-design-principles)
@@ -28,7 +28,7 @@ A batteries-included NestJS library ecosystem for building modern SaaS applicati
 
 ## Packages
 
-### @saaslib/nestjs (v0.0.40)
+### @nicopatoco/nestjs (v0.0.40)
 
 The core NestJS library providing comprehensive SaaS backend features:
 
@@ -47,9 +47,9 @@ The core NestJS library providing comprehensive SaaS backend features:
   - Role-based access control (RBAC)
   - Newsletter system with templated emails
 
-### @saaslib/nextjs (v0.0.41)
+### @nicopatoco/nextjs (v0.0.41)
 
-Optional Next.js integration providing type-safe hooks and utilities for interacting with the @saaslib/nestjs backend:
+Optional Next.js integration providing type-safe hooks and utilities for interacting with the @nicopatoco/nestjs backend:
 
 - **Requirements**:
   - Next.js ^15.1.6
@@ -71,12 +71,12 @@ SaaS Library can be integrated into your NestJS project gradually. Start with th
 
 1. Install the core NestJS package:
 ```bash
-npm i @saaslib/nestjs @nestjs/common@^10.4 @nestjs/core@^10.4
+npm i @nicopatoco/nestjs @nestjs/common@^10.4 @nestjs/core@^10.4
 ```
 
 2. Initialize the NestJS module with your desired features:
 ```typescript
-import { SaaslibModule } from '@saaslib/nestjs';
+import { SaaslibModule } from '@nicopatoco/nestjs';
 
 @Module({
   imports: [
@@ -158,8 +158,8 @@ cd packages/nestjs && npm test
 
 Each feature can be configured independently. See the package documentation for detailed options:
 
-- [@saaslib/nestjs configuration](packages/nestjs/README.md#configuration)
-- [@saaslib/nextjs configuration](packages/nextjs/README.md#configuration)
+- [@nicopatoco/nestjs configuration](packages/nestjs/README.md#configuration)
+- [@nicopatoco/nextjs configuration](packages/nextjs/README.md#configuration)
 
 ## License
 

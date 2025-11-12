@@ -1,5 +1,5 @@
 {
-  "name": "@saaslib/nestjs",
+  "name": "@nicopatoco/nestjs",
   "version": "0.0.57",
   "description": "",
   "author": "marian2js",
@@ -11,7 +11,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/marian2js/saaslib.git"
+    "url": "git+https://github.com/nicopatoco/saaslib.git"
   },
   "scripts": {
     "build": "tsc",
