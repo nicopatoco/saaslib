@@ -110,12 +110,12 @@ cd my-saas-app
 
 2. Install the required dependencies:
 ```bash
-npm i @saaslib/nestjs @nestjs/common@^10.4.1 @nestjs/core@^10.4.1 @nestjs/jwt@^10.2.0 @nestjs/mongoose@^10.0.10 @nestjs/passport@^10.0.3 @nestjs/platform-express@^10.4.1 @nestjs/schedule@^4.1.0 @nestjs/throttler@^6.2.1 reflect-metadata@^0.2.0 stripe@^17.4.0 mongoose@^8.5.4
+npm i @nicopatoco/nestjs @nestjs/common@^10.4.1 @nestjs/core@^10.4.1 @nestjs/jwt@^10.2.0 @nestjs/mongoose@^10.0.10 @nestjs/passport@^10.0.3 @nestjs/platform-express@^10.4.1 @nestjs/schedule@^4.1.0 @nestjs/throttler@^6.2.1 reflect-metadata@^0.2.0 stripe@^17.4.0 mongoose@^8.5.4
 ```
 
 3. Initialize the SaaS boilerplate code:
 ```bash
-npx @saaslib/nestjs init
+npx @nicopatoco/nestjs init
 ```
 
 This will create:
@@ -165,7 +165,7 @@ export class AuthModule {}
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
-import { SaaslibModule } from '@saaslib/nestjs';
+import { SaaslibModule } from '@nicopatoco/nestjs';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './user/auth/auth.module';
 
@@ -206,7 +206,7 @@ Your API will now be running with these endpoints available:
 ### Module Configuration
 
 ```typescript
-import { SaaslibModule } from '@saaslib/nestjs';
+import { SaaslibModule } from '@nicopatoco/nestjs';
 
 @Module({
   imports: [
@@ -308,7 +308,7 @@ AWS_S3_SECRET_ACCESS_KEY=your-s3-secret
 ```typescript
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { BaseUserService } from '@saaslib/nestjs';
+import { BaseUserService } from '@nicopatoco/nestjs';
 import { Model } from 'mongoose';
 import { User } from './user.model';
 
@@ -324,7 +324,7 @@ export class UserService extends BaseUserService<User> {
 ```typescript
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { BaseAuthService, EmailService, UserProviderService } from '@saaslib/nestjs';
+import { BaseAuthService, EmailService, UserProviderService } from '@nicopatoco/nestjs';
 import { UserService } from './user.service';
 
 @Injectable()
@@ -344,7 +344,7 @@ export class AuthService extends BaseAuthService {
 ```typescript
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { BaseApiKeyService } from '@saaslib/nestjs';
+import { BaseApiKeyService } from '@nicopatoco/nestjs';
 import { Model } from 'mongoose';
 import { ApiKey } from './apikey.model';
 import { User } from './user.model';
@@ -365,7 +365,7 @@ The library provides a robust system for managing user-owned resources through t
 
 ```typescript
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { OwneableModel } from '@saaslib/nestjs';
+import { OwneableModel } from '@nicopatoco/nestjs';
 
 @Schema()
 export class Project extends OwneableModel {
@@ -410,7 +410,7 @@ export class UpdateProjectDto {
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { OwneableEntityService } from '@saaslib/nestjs';
+import { OwneableEntityService } from '@nicopatoco/nestjs';
 import { Project } from './project.model';
 import { User } from '../user/user.model';
 
@@ -453,7 +453,7 @@ export class ProjectService extends OwneableEntityService<Project, User> {
 
 ```typescript
 import { Controller } from '@nestjs/common';
-import { OwneableEntityController } from '@saaslib/nestjs';
+import { OwneableEntityController } from '@nicopatoco/nestjs';
 import { Project } from './project.model';
 import { User } from '../user/user.model';
 import { ProjectService } from './project.service';
@@ -514,7 +514,7 @@ import {
   useCreateOwneableItem,
   useUpdateOwnableItem,
   useDeleteOwnableItem
-} from '@saaslib/nextjs';
+} from '@nicopatoco/nextjs';
 
 // In your React component
 const { data: projects } = useFetchOwnableItems<Project>('projects');
@@ -537,7 +537,7 @@ const { deleteItem } = useDeleteOwnableItem('projects');
 The library includes a MongoDB memory server for testing. Example test setup:
 
 ```typescript
-import { testModuleImports } from '@saaslib/nestjs/test';
+import { testModuleImports } from '@nicopatoco/nestjs/test';
 
 describe('YourService', () => {
   beforeEach(async () => {

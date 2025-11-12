@@ -1,6 +1,6 @@
 # Next.js SaaS Library
 
-React hooks and utilities for building SaaS applications with Next.js, designed to work seamlessly with @saaslib/nestjs.
+React hooks and utilities for building SaaS applications with Next.js, designed to work seamlessly with @nicopatoco/nestjs.
 
 ## Requirements
 
@@ -54,7 +54,7 @@ React hooks and utilities for building SaaS applications with Next.js, designed 
 ## Installation
 
 ```bash
-npm i @saaslib/nextjs @stripe/stripe-js@^5.5.0 jsonwebtoken@^9.0.2 next@^15.1.6 react@^19.0.0 react-dom@^19.0.0
+npm i @nicopatoco/nextjs @stripe/stripe-js@^5.5.0 jsonwebtoken@^9.0.2 next@^15.1.6 react@^19.0.0 react-dom@^19.0.0
 ```
 
 ## Basic Usage
@@ -62,7 +62,7 @@ npm i @saaslib/nextjs @stripe/stripe-js@^5.5.0 jsonwebtoken@^9.0.2 next@^15.1.6 
 ### Authentication
 
 ```typescript
-import { useLoggedInUser, useSignIn } from '@saaslib/nextjs';
+import { useLoggedInUser, useSignIn } from '@nicopatoco/nextjs';
 
 function LoginComponent() {
   const { user, loading } = useLoggedInUser();
@@ -79,7 +79,7 @@ function LoginComponent() {
 ### User Management
 
 ```typescript
-import { useGetMe, usePatchMe } from '@saaslib/nextjs';
+import { useGetMe, usePatchMe } from '@nicopatoco/nextjs';
 
 function ProfileComponent() {
   const { data, loading } = useGetMe();
@@ -96,7 +96,7 @@ function ProfileComponent() {
 ### Subscription Management
 
 ```typescript
-import { useCreateCheckoutSession } from '@saaslib/nextjs';
+import { useCreateCheckoutSession } from '@nicopatoco/nextjs';
 
 function SubscriptionComponent() {
   const { createSession, loading } = useCreateCheckoutSession();
@@ -116,7 +116,7 @@ function SubscriptionComponent() {
 ### Resource Management
 
 ```typescript
-import { useFetchOwnableItems, useCreateOwneableItem } from '@saaslib/nextjs';
+import { useFetchOwnableItems, useCreateOwneableItem } from '@nicopatoco/nextjs';
 
 function ResourceComponent() {
   const { data: items, loading } = useFetchOwnableItems('resources');
@@ -173,7 +173,7 @@ The library provides Next.js middleware for authentication:
 
 ```typescript
 // middleware.ts
-import { authRequiredMiddleware } from '@saaslib/nextjs';
+import { authRequiredMiddleware } from '@nicopatoco/nextjs';
 
 export async function middleware(req: NextRequest) {
   return await authRequiredMiddleware(req);
@@ -189,7 +189,7 @@ export const config = {
 Type-safe form actions for auth flows and user management:
 
 ```typescript
-import { signInAction, signUpAction } from '@saaslib/nextjs';
+import { signInAction, signUpAction } from '@nicopatoco/nextjs';
 
 // Server-side form actions
 async function onSignIn(data: FormData) {
@@ -208,7 +208,7 @@ async function onSignUp(data: FormData) {
 The package includes utilities for token management and security:
 
 ```typescript
-import { isAccessTokenExpired, getUserIdFromToken } from '@saaslib/nextjs';
+import { isAccessTokenExpired, getUserIdFromToken } from '@nicopatoco/nextjs';
 
 // Check if JWT is expired
 const expired = isAccessTokenExpired(token);
@@ -321,7 +321,7 @@ useUpdateOwnableItem<UpdateDto>(entityKey: string): {
 
 ## Resource Management
 
-The library provides hooks and utilities for working with ownable resources from the @saaslib/nestjs backend.
+The library provides hooks and utilities for working with ownable resources from the @nicopatoco/nestjs backend.
 
 ### Resource Hooks API
 
@@ -400,7 +400,7 @@ function ProjectList() {
 // app/actions.ts
 'use server'
 
-import { createOwnableItem, updateOwnableItem, deleteOwnableItem } from '@saaslib/nextjs';
+import { createOwnableItem, updateOwnableItem, deleteOwnableItem } from '@nicopatoco/nextjs';
 
 export async function createProject(data: CreateProjectDto) {
   return await createOwnableItem<CreateProjectDto, Project>('projects', data);
@@ -471,7 +471,7 @@ const { data: projects } = useFetchOwnableItems<Project>('projects', {
 
 ```typescript
 // Set up testing environment
-jest.mock('@saaslib/nextjs', () => ({
+jest.mock('@nicopatoco/nextjs', () => ({
   useLoggedInUser: () => ({
     user: { id: 'test-user' },
     loading: false

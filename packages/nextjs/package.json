@@ -1,11 +1,11 @@
 {
-  "name": "@saaslib/nextjs",
-  "version": "0.0.55",
+  "name": "@nicopatoco/nextjs",
+  "version": "0.0.58",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/marian2js/saaslib.git"
+    "url": "git+https://github.com/nicopatoco/saaslib.git"
   },
   "author": "marian2js",
   "license": "MIT",
@@ -35,5 +35,11 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "files": [
+    "dist",
+    "package.json",
+    "README.md",
+    "LICENSE"
+  ]
 }

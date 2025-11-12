@@ -7,7 +7,7 @@ mkdir -p $BASE_DIR/auth
 # User Model
 cat << 'EOF' > $BASE_DIR/user.model.ts
 import { Schema, SchemaFactory } from '@nestjs/mongoose'
-import { BaseUser } from '@saaslib/nestjs'
+import { BaseUser } from '@nicopatoco/nestjs'
 
 @Schema()
 export class User extends BaseUser {}
@@ -18,7 +18,7 @@ EOF
 cat << 'EOF' > $BASE_DIR/user.service.ts
 import { Injectable } from '@nestjs/common'
 import { InjectModel } from '@nestjs/mongoose'
-import { BaseUserService } from '@saaslib/nestjs'
+import { BaseUserService } from '@nicopatoco/nestjs'
 import { Model } from 'mongoose'
 import { User } from './user.model'
 
@@ -33,7 +33,7 @@ EOF
 # User Controller
 cat << 'EOF' > $BASE_DIR/user.controller.ts
 import { Controller } from '@nestjs/common'
-import { BaseUserController, EmailService } from '@saaslib/nestjs'
+import { BaseUserController, EmailService } from '@nicopatoco/nestjs'
 import { User } from './user.model'
 import { UserService } from './user.service'
 
@@ -52,7 +52,7 @@ EOF
 cat << 'EOF' > $BASE_DIR/auth/auth.service.ts
 import { Injectable } from '@nestjs/common'
 import { JwtService } from '@nestjs/jwt'
-import { BaseAuthService, EmailService, UserProviderService } from '@saaslib/nestjs'
+import { BaseAuthService, EmailService, UserProviderService } from '@nicopatoco/nestjs'
 import { UserService } from '../user.service'
 
 @Injectable()
@@ -71,7 +71,7 @@ EOF
 # Auth Controller
 cat << 'EOF' > $BASE_DIR/auth/auth.controller.ts
 import { Controller } from '@nestjs/common'
-import { BaseAuthController } from '@saaslib/nestjs'
+import { BaseAuthController } from '@nicopatoco/nestjs'
 import { UserService } from '../user.service'
 import { AuthService } from './auth.service'
 
@@ -101,4 +101,4 @@ if [ -f $ENV_EXAMPLE ]; then
     cat $ENV_EXAMPLE >> $ENV_FILE
 fi
 
-echo "@saaslib/nestjs project setup completed. Please update the .env file with your configurations."
+echo "@nicopatoco/nestjs project setup completed. Please update the .env file with your configurations."
